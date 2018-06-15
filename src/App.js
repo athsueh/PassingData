@@ -97,6 +97,22 @@ const movies = {
   },
 };
 
+class MoviesList extends Component{
+	render(){
+    	return (
+      		<ol className ='movies-list'>
+      		{this.props.profiles.map((profile) => (
+          		<li key = {profile.id} className='movies-list-item'>
+          			<div>
+          				<p>{`${users[profile.userID].name}'s favorite movie is "${movies[profile.favoriteMovieID].name}."`}</p>
+          			</div>
+          		</li>
+          	))}
+			</ol>
+        );
+    }
+}
+
 class App extends Component {
   render() {
     return (
@@ -106,6 +122,7 @@ class App extends Component {
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
         <h2>Favorite Movies</h2>
+		<MoviesList profiles = {profiles}/>
       </div>
     );
   }
